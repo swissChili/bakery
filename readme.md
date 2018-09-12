@@ -8,7 +8,7 @@ It's really not yet. But its easier than learning `Makefile` so thats something.
 - make it actually useful by adding Bakers, background processes used to run things over SSH or other server things
 
 ### Usage
-`bake` looks for a bakery in your current directory, here is an example bakery:
+`bake` looks for a `Bakery` in your current directory, here is an example bakery:
 ```sh
 # bake
 echo "This will be called when `bake` is run"
