@@ -1,0 +1,7 @@
+#bake
+echo "Compiling bake with g++"
+g++ -o bake bake.cpp
+
+#install
+echo "installing bake, super user priveleges required"
+sudo cp bake /usr/bin/bake
