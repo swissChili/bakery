@@ -19,14 +19,17 @@ int main (int argc, char **argv)
       {
         string command(line);
         command.replace(command.find("#"), 1, "");
+        if ( command.rfind(" ", 0) == 0 ) {
+
+          command.replace(command.find(" "), 1, "");
+        }
         if ( argc > 1 ) {
           targetCmd = argv[1];
         } else {
           targetCmd = "bake";
         }
 
-        if ( command == targetCmd )
-        {
+        if ( command == targetCmd ) {
           incommand = true;
         } else {
           incommand = false;
