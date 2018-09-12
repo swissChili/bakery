@@ -22,4 +22,14 @@ go build -o coolprogram myprogram.go
 echo "this will be called when `bake install` is run"
 sudo cp coolprogram /usr/bin/coolprogram
 ```
+Bakeries consist of recipes, and recipes are defined just like bash comments, so they are completely valid bash code.
+
+Recipe definition can look like any of the following:
+```sh
+#bake
+echo "code here!"
+# bake
+echo "this also works"
+```
+One space after the `#` is allowed, but no more. 
 
