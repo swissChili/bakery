@@ -7,6 +7,7 @@ using std::cout;
 
 int main (int argc, char **argv)
 {
+  cout << "Reading Bakery" << std::endl;
   string line;
   bool incommand = false;
   string targetCmd;
@@ -20,7 +21,6 @@ int main (int argc, char **argv)
         string command(line);
         command.replace(command.find("#"), 1, "");
         if ( command.rfind(" ", 0) == 0 ) {
-
           command.replace(command.find(" "), 1, "");
         }
         if ( argc > 1 ) {
@@ -42,6 +42,6 @@ int main (int argc, char **argv)
   }
   else
   {
-    cout << "unable to find Bakery" << std::endl;
+    cout << "unable to find Bakery, did you mean to run this in a differnet directory?" << std::endl;
   }
 }
