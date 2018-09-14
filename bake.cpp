@@ -4,10 +4,11 @@
 
 using std::string;
 using std::cout;
+using std::endl;
 
 int main (int argc, char **argv)
 {
-  cout << "Reading Bakery" << std::endl;
+  cout << "Reading Bakery" << endl;
   string line;
   bool incommand = false;
   string targetCmd;
@@ -16,10 +17,10 @@ int main (int argc, char **argv)
   {
     while ( getline(bakery, line) )
     {
-      if ( line.rfind("#", 0) == 0)
+      if ( line.rfind("#@", 0) == 0)
       {
         string command(line);
-        command.replace(command.find("#"), 1, "");
+        command.replace(command.find("#@"), 2, "");
         if ( command.rfind(" ", 0) == 0 ) {
           command.replace(command.find(" "), 1, "");
         }
@@ -42,6 +43,6 @@ int main (int argc, char **argv)
   }
   else
   {
-    cout << "unable to find Bakery, did you mean to run this in a differnet directory?" << std::endl;
+    cout << "unable to find Bakery, did you mean to run this in a differnet directory?" << endl;
   }
 }
