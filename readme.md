@@ -1,6 +1,13 @@
 # Bake
 ### Bash-based build tool
 
+## Installation
+```sh
+g++ -o bake bake.cpp
+./bake install
+```
+This builds bake, then uses it to install itself. Now isn't that neat.
+
 ### Why is it useful?
 It's really not yet. But its easier than learning `Makefile` so thats something.
 
