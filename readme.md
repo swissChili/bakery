@@ -2,16 +2,13 @@
 ### Bash-based build tool
 
 ### Why is it useful?
-Bash! its great, we all love it, and now you can more easily use it for building things.
-
-Oh, and you dont need to have a bunch of `build.sh`, `install.sh`, `link.sh` scripts. all in one file!
-
+It's really not yet. But its easier than learning `Makefile` so thats something.
 
 ### Roadmap
 - make it actually useful by adding Bakers, background processes used to run things over SSH or other server things
 
 ### Usage
-`bake` looks for a bakery in your current directory, here is an example bakery:
+`bake` looks for a `Bakery` in your current directory, here is an example bakery:
 ```sh
 #@bake
 echo "This will be called when `bake` is run"
