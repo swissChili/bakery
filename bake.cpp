@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "./bake.hpp"
 
 using std::string;
 using std::cout;
@@ -36,6 +37,12 @@ int main (int argc, char **argv)
           incommand = false;
         }
 
+      } else if ( line.rfind("#&", 0) == 0 ){
+        // enters if this is an ingredient
+        cout << "Found an ingredient!" << line << endl;
+        string command(line);
+        command.replace(command.find("#&"), 2, "");
+        bake::parseIngredient(command);
       } else if ( incommand == true ) {
         system(line.c_str());
       }
