@@ -6,7 +6,7 @@ using std::string;
 
 namespace bake
 {
-  std::regex include("^#include.+");
+  std::regex include("#include.+\"(.+)\"");
   int parseIngredient ( string ingredientPath )
   {
     string line;
@@ -16,9 +16,13 @@ namespace bake
       int includes = 0;
       while ( getline(ingredient, line) )
       {
-        if ( std::regex_match (line, include) )
+        std::smatch m;
+        if ( std::regex_match (line, m, include) )
         {
           includes++;
+          std::ssub_match smatch = m[1];
+          string match = smatch.str();
+          std::cout << match << std::endl;
         }
       }
       std::cout << includes << " includes found!" << std::endl;

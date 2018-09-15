@@ -1,4 +1,5 @@
-#&./bake.hpp
+#&./bake.cpp
+
 #@bake
 echo "Compiling bake with g++"
 g++ -o bake bake.cpp
