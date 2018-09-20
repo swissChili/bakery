@@ -3,7 +3,10 @@
 
 ## Installation
 ```sh
-g++ -o bake bake.cpp
+# compile the main bake command
+g++ -o bake src/bake.cpp
+# compile the baketool
+g++ -o baketool src/baketools/baketools.cpp
 ./bake install
 ```
 This builds bake, then uses it to install itself. Now isn't that neat.

@@ -1,8 +1,10 @@
 #@bake
+c_standard="c++17"
+compiler="g++"
 echo "Compiling bake with g++"
-gcc -std=c++17 -o bake bake.cpp -lstdc++
 new_recipe bake bake.cpp
-gcc -std=c++17 -o baketool baketools/baketools.cpp -lstdc++
+new_recipe baketool baketools/baketools.cpp
+bake_all
 
 #@install
 echo "installing bake, super user privileges required"

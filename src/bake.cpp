@@ -52,6 +52,6 @@ int main (int argc, char **argv)
   }
   else
   {
-    cout << "unable to find Bakery, did you mean to run this in a differnet directory?" << endl;
+    cout << "unable to find Bakery, did you mean to run this in a different directory?" << endl;
   }
 }
