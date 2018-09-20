@@ -7,7 +7,7 @@ using std::string;
 
 namespace bake
 {
-  string sourceRecipe ( string recipe )
+  int sourceRecipe ( string recipe )
   {
     const string source = "source /usr/bin/baketools.sh";
     const string tempDir = "./~bakecommand_temp.sh";
@@ -18,15 +18,9 @@ namespace bake
     tempCommand.open(tempDir);
     tempCommand << command;
     tempCommand.close();
-    system("bash ".append(tempDir));
+    system(string("bash ").append(tempDir).c_str());
     // attempt to delete the temp file
-    if ( remove(tempDir) != 0 )
-    {
-      perror("Error removing temporary file!");
-    }
-    else
-    {
-      return 0;
-    }
+    // system(string("rm ").append(tempDir).c_str());
+    return 0;
   }
 }
