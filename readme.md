@@ -1,7 +1,7 @@
 # Bake
-### Bash-based build tool
+#### Bash-based build tool
 
-## Installation
+### Installation
 ```sh
 # change into the source director
 cd src

@@ -10,11 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d9ead0c-a9e2-481d-b7de-2041a708d954" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bakery" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bakery" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bake.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/bake.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/baketools/baketools.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/baketools/baketools.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,14 +56,14 @@
           <entry key="cpp" value="502" />
           <entry key="gitignore" value="23" />
           <entry key="hpp" value="923" />
-          <entry key="md" value="1444" />
+          <entry key="md" value="1448" />
           <entry key="sh" value="2224" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="578" />
-          <entry key="Markdown" value="1444" />
+          <entry key="Markdown" value="1448" />
           <entry key="ObjectiveC" value="1425" />
           <entry key="PLAIN_TEXT" value="1899" />
         </counts>
@@ -116,8 +112,8 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="724">
-                <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+              <first_editor relative-caret-position="31">
+                <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
                 <folding>
                   <element signature="e#50#195#0" />
                   <element signature="e#497#1090#0" />
@@ -267,12 +263,12 @@
       <workItem from="1537389268867" duration="17000" />
       <workItem from="1537454702777" duration="6829000" />
       <workItem from="1537468607937" duration="3294000" />
-      <workItem from="1537484009311" duration="1035000" />
+      <workItem from="1537484009311" duration="1571000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12235000" />
+    <option name="totallyTimeSpent" value="12771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="33" width="1920" height="1047" extended-state="6" />
@@ -290,7 +286,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3662457" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3662457" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32876712" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -380,8 +376,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="724">
-            <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+          <first_editor relative-caret-position="31">
+            <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
             <folding>
               <element signature="e#50#195#0" />
               <element signature="e#497#1090#0" />
