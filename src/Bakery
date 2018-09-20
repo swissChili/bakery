@@ -1,0 +1,10 @@
+#@bake
+echo "Compiling bake with g++"
+gcc -std=c++17 -o bake bake.cpp -lstdc++
+gcc -std=c++17 -o baketools baketools/baketools.cpp -lstdc++
+
+#@install
+echo "installing bake, super user privileges required"
+sudo cp bake /usr/bin/bake
+sudo cp baketools /usr/bin/baketools
+sudo cp baketools/baketools.sh /usr/bin/baketools.sh

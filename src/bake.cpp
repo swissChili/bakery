@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "./bake.hpp"
+#include "bake.hpp"
 
 using std::string;
 using std::cout;
@@ -12,6 +12,7 @@ int main (int argc, char **argv)
   cout << "Reading Bakery" << endl;
   string line;
   bool incommand = false;
+  string fullCommand;
   string targetCmd;
   std::ifstream bakery ("Bakery");
   if ( bakery.is_open() )
@@ -37,15 +38,16 @@ int main (int argc, char **argv)
           incommand = false;
         }
 
-      } else if ( line.rfind("#&", 0) == 0 ){
-        // enters if this is an ingredient
-        cout << "Found an ingredient!" << line << endl;
-        string command(line);
-        command.replace(command.find("#&"), 2, "");
-        bake::parseIngredient(command);
-      } else if ( incommand == true ) {
-        system(line.c_str());
+      }  else if ( incommand ) {
+        fullCommand.append("\n");
+        fullCommand.append(line);
       }
+    }
+    if ( fullCommand != "" )
+    {
+      cout
+        << bake::sourceRecipe(fullCommand)
+        << endl;
     }
   }
   else
