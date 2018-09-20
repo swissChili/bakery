@@ -8,6 +8,5 @@ bake_all
 
 #@install
 echo "installing bake, super user privileges required"
-sudo cp baketool /usr/bin/baketool
 sudo cp baketools/baketools.sh /usr/bin/baketools.sh
 sudo cp bake /usr/bin/bake
