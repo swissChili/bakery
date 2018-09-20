@@ -2,8 +2,8 @@
 c_standard="c++17"
 compiler="g++"
 echo "Compiling bake with g++"
-new_recipe bake bake.cpp
-new_recipe baketool baketools/baketools.cpp
+new_ingredient bake bake.cpp
+new_ingredient baketool baketools/baketools.cpp
 bake_all
 
 #@install

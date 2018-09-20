@@ -45,9 +45,12 @@ int main (int argc, char **argv)
     }
     if ( fullCommand != "" )
     {
-      cout
-        << bake::sourceRecipe(fullCommand)
-        << endl;
+      if ( bake::sourceRecipe(fullCommand) )
+      {
+        cout
+          << "error baking recipe, fix your Bakery and try again"
+          << endl;
+      }
     }
   }
   else
