@@ -5,12 +5,13 @@
 ```sh
 # change into the source director
 cd src
-# compile the main bake command
-g++ -o bake bake.cpp
-# Install using the Bakery
-./bake install
+# Since bakerys are completely valid Bash, just run it as a shell script!
+./Bakery
+# ^ this bakery has a shebang so it can be run nicely, but its not necessary. 
+#   If you want your bakery to be valid, you'll need to include the baketools shell script with it
+#   and `source` it in your Bakery.
 ```
-This builds bake, then uses it to install itself. Now isn't that neat.
+This uses the Bakery to build bake and install it. Now isn't that neat. 
 
 ### Why is it useful?
 Using Bash is nice, and you're probably already familiar with it. This way you don't have to learn anything else.
@@ -64,3 +65,6 @@ Adds the library to the list of libraries to link to the ingredient. Libraries w
 Bake the ingredient, including linking the specified libraries, using the `compiler` and `c_standard`. These default to `g++` and `c++17` respectively.
 Change these simply by setting the variables to something else. These variables are recipe-specific, different compilers and c standards can be defined
 for each recipe.
+- `define_all definition value`
+defines a variable `definition` for every ingredient loaded. Use this variable in *any* of your C/C++ programs with `%%definition%%`. 
+This is convenient for things like setting a program version for all files in a project.

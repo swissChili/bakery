@@ -20,7 +20,7 @@ namespace bake
     tempCommand.close();
     system(string("bash ").append(tempDir).c_str());
     // attempt to delete the temp file
-    // system(string("rm ").append(tempDir).c_str());
+    system(string("rm ").append(tempDir).c_str());
     return 0;
   }
 }

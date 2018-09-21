@@ -1,19 +1,26 @@
 #!/bin/bash
-
-###########################################################################################################
-## Bakery BakeTools                                                                                      ##
-## This file will be automatically `source`d in your Bakery by `bake`, do not include it manually.       ##
-###########################################################################################################
+#############################################################################################################
+## Bakery BakeTools                                                                                        ##
+## This file will be automatically `source`d in your Bakery by `bake`, don't need to include it manually.  ##
+#############################################################################################################
 
 declare -A ingredients
 declare -A ingredient_links
 declare -A flags
 compiler="g++"
 c_standard="c++17"
+baketools_cpp="/usr/bin/baketools"
 function new_ingredient() {
     ingredientName="$1"
     ingredientFile="$2"
     ingredients["$ingredientName"]="$ingredientFile"
+}
+function define_all() {
+    definition="$1"
+    value="$2"
+    for ingredient in "${!ingredients[@]}"; do
+        sed -i -e "s/%%${definition}%%/$value/g" ${ingredients["$ingredient"]}
+    done
 }
 function link_static() {
     ingredientName="$1"

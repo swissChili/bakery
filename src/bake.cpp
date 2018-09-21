@@ -9,7 +9,11 @@ using std::endl;
 
 int main (int argc, char **argv)
 {
-  cout << "Reading Bakery" << endl;
+  string version = "0.1.1";
+  cout
+    << "Reading Bakery    bake v"
+    << version
+    << endl;
   string line;
   bool incommand = false;
   string fullCommand;
