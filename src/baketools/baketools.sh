@@ -22,20 +22,25 @@ function define_all() {
         sed -i -e "s/%%${definition}%%/$value/g" ${ingredients["$ingredient"]}
     done
 }
-function link_static() {
+function link() {
     ingredientName="$1"
     link="$2"
     ingredientFile="${ingredients[$ingredientName]}"
-    ingredient_links["$ingredientName"]="$link"
+    ingredient_links["$ingredientName"]="${ingredient_links["$ingredientName"]} $link"
 }
 function bake_ingredient() {
     links=" "
     ingredient="$1"
     if [ "$compiler" == "g++" ]; then
         for link in "${!ingredient_links[@]}"; do
-            $links="$links -l$link"
+            links="$links -l$link"
         done
         g++ -o $ingredient ${ingredients[$ingredient]} $links -std=$c_standard
+        links=" "
+    elif [ "$compiler" == "valac" ]; then
+        links="--pkg"
+        links="$links ${ingredient_links[$ingredient]}"
+        valac ${ingredients[$ingredient]} $links
         links=" "
     fi
 }
