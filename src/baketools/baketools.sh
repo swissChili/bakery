@@ -40,7 +40,7 @@ function bake_ingredient() {
     elif [ "$compiler" == "valac" ]; then
         links="--pkg"
         links="$links ${ingredient_links[$ingredient]}"
-        valac ${ingredients[$ingredient]} $links
+        valac -o $ingredient ${ingredients[$ingredient]} $links
         links=" "
     fi
 }
