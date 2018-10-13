@@ -6,7 +6,17 @@ compiler="g++"
 echo "Compiling bake with g++"
 new_ingredient bake bake.cpp
 new_ingredient baketools_cpp baketools/baketools.cpp
-define_all bake_version 0.1.1
+new_ingredient bake_bootsrapper bakery_bootstrapper.cpp
+define_all bake_version 0.1.2
+bake_all
+
+#@installer
+target="bake"
+c_standard="c++17"
+compiler="g++"
+new_ingredient bake bake.cpp
+new_ingredient baketools_cpp baketools/baketools.cpp
+define_all bake_version 0.1.2
 bake_all
 
 #@install
@@ -14,3 +24,5 @@ echo "installing bake, super user privileges required"
 sudo cp baketools/baketools.sh /usr/bin/baketools.sh
 sudo cp bake /usr/bin/bake
 sudo cp baketools_cpp /usr/bin/baketools
+sudo mkdir -p /etc/bake
+sudo cp bootstrapper.c /etc/bake/bootstrapper.c
