@@ -27,7 +27,7 @@ function link() {
     ingredientName="$1"
     link="$2"
     ingredientFile="${ingredients[$ingredientName]}"
-    ingredient_links["$ingredientName"]="${ingredient_links["$ingredientName"]} $link"
+    ingredient_links["$ingredientName"]="${ingredient_links["$ingredientName"]} -l$link"
 }
 
 function bake_ingredient() {
@@ -50,21 +50,6 @@ function bake_ingredient() {
         done
         gcc -o $ingredient ${ingredients[$ingredient]} $links
         links=" "
-    fi
-
-    if [ "$target" == "bake" ]; then
-        # create the zip archive
-        zip -r bake_compressed.zip .
-        # create an object to link with the bootstrapper
-        mv Bakery bakery
-        ld -r -b binary -o bakery.o bakery
-        ld -r -b binary -o bake_compressed_zip.o bake_compressed.zip
-        gcc \
-            /etc/bake/bootstrapper.c \
-            bakery.o \
-            bake_compressed_zip.o \
-            -o bootstrap.bake
-        mv bakery Bakery
     fi
 }
 function bake_all() {

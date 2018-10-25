@@ -1,0 +1,9 @@
+#@bake
+pip install flask
+
+#@container
+container="python"
+pip="flask"
+
+#@deploy
+python main.py
