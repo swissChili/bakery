@@ -9,6 +9,7 @@ using std::endl;
 
 int main (int argc, char **argv)
 {
+  const string temp = ".bake.sh.temp";
   string version = "0.1.2";
   cout
     << "Reading Bakery    bake v"
@@ -20,5 +21,5 @@ int main (int argc, char **argv)
   if ( parsed == "" )
     cout << "Failed to parse bakery!";
   else
-    bake::sourceRecipe(parsed);
+    bake::sourceRecipe(parsed, temp);
 }

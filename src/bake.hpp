@@ -9,10 +9,9 @@ using std::endl;
 
 namespace bake
 {
-  int sourceRecipe ( string recipe )
+  int sourceRecipe ( string recipe, string tempDir )
   {
     const string source = "source /usr/bin/baketools.sh";
-    const string tempDir = "./~bakecommand_temp.sh";
     string command;
     command.append(source);
     command.append(recipe);
@@ -39,6 +38,10 @@ namespace bake
       {
         if ( line.rfind("#@", 0) == 0)
         {
+          /**
+           * Parse the syntax for recipes:
+           * #@recipe || #@ recipe
+           */
           string command(line);
           command.replace(command.find("#@"), 2, "");
           if ( command.rfind(" ", 0) == 0 ) {
@@ -68,5 +71,4 @@ namespace bake
     }
     return "";
   }
-
 }
