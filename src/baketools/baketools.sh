@@ -87,8 +87,13 @@ CMD [\"/usr/bin/bake\", \"deploy\"]"
     echo "$base_container" > Dockerfile
     sudo docker build -t $name .
     echo "built"
-    sudo docker run -p $port:80 -a STDOUT -it $name
-    echo "ran"
+    local cname=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 24 ; echo '')
+    sudo docker run -p $port:80 -a STDOUT --name $cname $name &
+
+    echo "PID $!"
+    containerid=$!
+    echo "$containerid" >> .container.pid
+    echo "$cname" >> .container.name
     rm Dockerfile
     rm -rf .bake
 }

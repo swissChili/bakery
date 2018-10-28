@@ -1,5 +1,8 @@
 **/baketool
 **/bake
+**/bake-kill
+**/*.name
+**/*.pid
 **/~*
 **/*.temp
 **/Dockerfile

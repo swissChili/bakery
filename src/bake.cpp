@@ -7,13 +7,15 @@ using std::string;
 using std::cout;
 using std::endl;
 
-int main (int argc, char **argv)
+int main (int argc, char ** argv)
 {
   const string temp = ".bake.sh.temp";
-  string version = "0.1.2";
+  string version = "0.1.3";
   cout
     << "Reading Bakery    bake v"
     << version
+    << endl
+    << argv[1]
     << endl;
 
   string parsed = bake::parseBakery(argc, argv);
