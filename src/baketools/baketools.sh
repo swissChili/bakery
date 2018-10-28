@@ -11,6 +11,10 @@ compiler="g++"
 c_standard="c++17"
 target="bin"
 baketools_cpp="/usr/bin/baketools"
+name="unnamed-bake-container"
+image="ubuntu:18.04"
+container_location="/app"
+port="4000"
 function new_ingredient() {
     ingredientName="$1"
     ingredientFile="$2"
@@ -56,4 +60,35 @@ function bake_all() {
     for ingredient in "${!ingredients[@]}"; do
         bake_ingredient "$ingredient"
     done
+}
+
+function bake_container() {
+    local bake_bin=".bake/bake"
+    local baketools=".bake/baketools.sh"
+    local base_container="
+FROM $image
+
+WORKDIR $container_location
+COPY . $container_location
+COPY $bake_bin /usr/bin/bake
+COPY $baketools /usr/bin/baketools.sh
+
+EXPOSE 80
+
+RUN /usr/bin/bake
+CMD [\"/usr/bin/bake\", \"deploy\"]"
+
+    mkdir ./.bake
+    cp /usr/bin/bake ./.bake/bake
+    cp /usr/bin/baketools.sh ./.bake/baketools.sh
+
+    echo "RUNNING ON NAME $name"
+
+    echo "$base_container" > Dockerfile
+    sudo docker build -t $name .
+    echo "built"
+    sudo docker run -p $port:80 -a STDOUT -it $name
+    echo "ran"
+    rm Dockerfile
+    rm -rf .bake
 }

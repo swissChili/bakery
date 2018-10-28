@@ -18,6 +18,7 @@ int main (int argc, char **argv)
 
   string parsed = bake::parseBakery(argc, argv);
 
+  // modern c++ features are great!
   if ( parsed == "" )
     cout << "Failed to parse bakery!";
   else

@@ -47,17 +47,15 @@ namespace bake
           if ( command.rfind(" ", 0) == 0 ) {
             command.replace(command.find(" "), 1, "");
           }
-          if ( argc > 1 ) {
+          if ( argc > 1 )
             targetCmd = argv[1];
-          } else {
+          else
             targetCmd = "bake";
-          }
 
-          if ( command == targetCmd ) {
+          if ( command == targetCmd )
             incommand = true;
-          } else {
+          else
             incommand = false;
-          }
 
         }  else if ( incommand ) {
           fullCommand.append("\n");
