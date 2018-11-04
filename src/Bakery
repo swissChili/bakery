@@ -5,7 +5,7 @@ echo "Compiling bake with g++"
 new_ingredient bake bake.cpp
 new_ingredient baketools_cpp baketools/baketools.cpp
 new_ingredient bake-deploy deploy.cpp
-new_ingredient bake-kill bake-kill.cpp
+new_ingredient baked daemon.cpp
 
 define_all bake_version 0.1.2
 bake_all
@@ -15,4 +15,4 @@ echo "installing bake, super user privileges required"
 sudo cp baketools/baketools.sh /usr/bin/baketools.sh
 sudo cp bake /usr/bin/bake
 sudo cp baketools_cpp /usr/bin/baketools
-sudo cp bake-kill /usr/bin/bake-kill
+sudo cp baked /usr/bin/baked

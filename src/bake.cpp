@@ -10,12 +10,33 @@ using std::endl;
 int main (int argc, char ** argv)
 {
   const string temp = ".bake.sh.temp";
-  string version = "0.1.3";
+
+  string sargv[argc];
+
+  for ( int i = 0; i < argc; ++i )
+  {
+    sargv[i] = string(argv[i]);
+  }
+
+  if ( sargv[1] == "-k" || sargv[1] == "--kill" )
+  {
+    if ( bake::kill() )
+    {
+      cout << "Killed successfully!"; 
+      return 0;
+    }
+    else
+    {
+      cout << "Failed to kill! Is there a container running?"; 
+      return 1;
+    }
+    cout << endl;
+  }
+
+  const string version = "0.1.3";
   cout
     << "Reading Bakery    bake v"
     << version
-    << endl
-    << argv[1]
     << endl;
 
   string parsed = bake::parseBakery(argc, argv);
