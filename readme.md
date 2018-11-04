@@ -3,7 +3,7 @@
 
 ### Installation
 ```sh
-curl swisschili.github.io/bakery/install.sh | sh
+wget swisschili.github.io/bakery/install.sh && sh install.sh
 ```
 
 ### Why is it useful?
