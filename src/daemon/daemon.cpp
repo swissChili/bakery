@@ -1,3 +1,4 @@
+// that's a lotta includes
 #include <dirent.h>
 #include <iterator>
 #include <cstdlib>
@@ -9,19 +10,24 @@
 #include <sys/stat.h>
 #include <syslog.h>
 #include <unistd.h>
+#include <vector>
 
-void heartbeat() {
-    std::ofstream log;
-    log.open("/home/cake/bake.log", std::ios_base::app);
-    log << "Log!";
-    log.close();
-}
+#include "daemon.hpp"
+
+using std::string;
+using std::vector;
 
 int main ( int argc, char ** argv )
 {
+    // convert to c++ string to make comparisons not awful
+    string args[argc];
+    for ( int i = 0; i < argc; ++i )
+    {
+        args[i] = string(argv[i]);
+    }
     if ( argc > 1 )
     {
-        std::string arg = argv[1];
+        string arg = args[1];
         if ( arg == "-q" || arg == "--quit" )
         {
             system("pkill -INT baked");
@@ -32,7 +38,7 @@ int main ( int argc, char ** argv )
         }
     }
     pid_t pid, sid;
-    
+
     pid = fork();
     if ( pid > 0 )
     {
@@ -58,4 +64,3 @@ int main ( int argc, char ** argv )
         sleep(1);
     }
 }
-
