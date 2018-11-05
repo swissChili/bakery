@@ -40,6 +40,6 @@ echo "If this fails, please install docker-ce and continue"
 docker >> /dev/null
 worked
 
-# echo "Cleaning up"
-# cd ~
-# rm -rf .bake
+echo "Cleaning up"
+cd ~
+rm -rf .bake
