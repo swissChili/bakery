@@ -15,6 +15,7 @@ name="unnamed-bake-container"
 image="ubuntu:18.04"
 container_location="/app"
 port="4000"
+tests_failed="0"
 function new_ingredient() {
     ingredientName="$1"
     ingredientFile="$2"
@@ -96,4 +97,19 @@ CMD [\"/usr/bin/bake\", \"deploy\"]"
     echo "$cname" >> .container.name
     rm Dockerfile
     rm -rf .bake
+}
+test_command() {
+    local green="\033[38;5;43m"
+    local red="\033[38;5;203m"
+    local reset="\033[0m"
+    echo "$?"
+    if [ "$?" -eq "0" ]; then
+        echo -e "$green✓ Done$reset"
+    else
+        echo -e "$red🗴 Failed$reset"
+        tests_failed=$((tests_failed+1))
+    fi
+}
+tests_passed() {
+    exit $tests_failed
 }

@@ -21,32 +21,5 @@ bool exists (string name) {
 }
 
 void heartbeat() {
-    vector<string> repos = refreshRepos();
-}
-
-vector< string > parseToLines(string path)
-{
-    vector< string > lines;
-    string line;
-    std::ifstream file (path);
-    while ( file.is_open() )
-    {
-        while ( getline(file, line) )
-        {
-            lines.push_back(line);
-        }
-    }
-    return lines;
-}
-
-vector< string > refreshRepos()
-{
-    if ( exists("/bake/repolist") )
-    {
-        return parseToLines("/bake/repolist");
-    }
-    else
-    {
-        return 
-    }
+   std::cout << "heartbeat"<<std::endl;
 }

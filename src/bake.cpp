@@ -12,6 +12,7 @@ int main (int argc, char ** argv)
     const string temp = ".bake.sh.temp";
 
     string sargv[argc];
+    bool test = false;
 
     for ( int i = 0; i < argc; ++i )
     {
@@ -32,6 +33,13 @@ int main (int argc, char ** argv)
         }
         cout << endl;
     }
+    else if ( sargv[1] == "-t" || sargv[1] == "--test" )
+    {
+        test = true;
+        cout
+            << "Starting Test"
+            << endl;
+    }
 
     const string version = "0.1.3";
     cout
@@ -39,11 +47,11 @@ int main (int argc, char ** argv)
         << version
         << endl;
 
-    string parsed = bake::parseBakery(argc, argv);
+    string parsed = bake::parseBakery(argc, argv, test);
 
     // modern c++ features are great!
     if ( parsed == "" )
         cout << "Failed to parse bakery!";
     else
-        bake::sourceRecipe(parsed, temp);
+        bake::sourceRecipe(parsed, temp, test);
 }

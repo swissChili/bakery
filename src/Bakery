@@ -3,7 +3,6 @@ c_standard="c++17"
 compiler="g++"
 echo "Compiling bake with g++"
 new_ingredient bake bake.cpp
-new_ingredient bake-deploy deploy.cpp
 new_ingredient baked daemon/daemon.cpp
 
 define_all bake_version 0.1.2
