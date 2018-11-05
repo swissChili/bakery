@@ -102,8 +102,8 @@ test_command() {
     local green="\033[38;5;43m"
     local red="\033[38;5;203m"
     local reset="\033[0m"
-    echo "$?"
-    if [ "$?" -eq "0" ]; then
+    local code="$1"
+    if [ "$code" -eq "0" ]; then
         echo -e "$green✓ Done$reset"
     else
         echo -e "$red🗴 Failed$reset"

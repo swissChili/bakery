@@ -46,12 +46,4 @@ int main (int argc, char ** argv)
         << "Reading Bakery    bake v"
         << version
         << endl;
-
-    string parsed = bake::parseBakery(argc, argv, test);
-
-    // modern c++ features are great!
-    if ( parsed == "" )
-        cout << "Failed to parse bakery!";
-    else
-        bake::sourceRecipe(parsed, temp, test);
 }

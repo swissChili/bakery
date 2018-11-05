@@ -28,7 +28,7 @@ namespace bake
         tempCommand.open(tempDir);
         tempCommand << command;
         tempCommand.close();
-        int ret = system(string("bash ").append(tempDir).c_str());
+        int ret = system(string("bash ").append(tempDir).c_str()) / 256;
         // see how many tests succeeded and failed
         if ( test )
         {
@@ -109,7 +109,7 @@ namespace bake
                     // exits with code `0`, only if in test mode
                     if ( !endsWith(line, "\\") && line != "" && test )
                     {
-                        fullCommand.append(testCommand);
+                        fullCommand.append("\ntest_command $?");
                     }
                 }
             }

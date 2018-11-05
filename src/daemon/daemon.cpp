@@ -30,11 +30,21 @@ int main ( int argc, char ** argv )
         string arg = args[1];
         if ( arg == "-q" || arg == "--quit" )
         {
-            system("pkill -INT baked");
-            std::cout
-                << "Killed Daemon"
-                << std::endl;
-            return 0;
+            int ret = system("pkill -INT baked");
+            if ( !ret )
+            {
+                std::cout
+                    << "Killed Daemon"
+                    << std::endl;
+                return 0;
+            }
+            else
+            {
+                std::cout
+                    << "Failed to kill daemon"
+                    << std::endl;
+                return 1;
+            }
         }
     }
     pid_t pid, sid;
@@ -58,9 +68,12 @@ int main ( int argc, char ** argv )
         syslog(LOG_ERR, "Could not generate SID");
     }
 
-    while ( 1 )
-    {
-        heartbeat();
-        sleep(1);
-    }
+    bool clone = cloneRepo("https://github.com/swissChili/bakery.git");
+
+    if ( clone )
+        std::cout << "Cloned Successfully";
+    else
+        std::cout << "Failed to clone";
+    std::cout << std::endl;
+
 }
