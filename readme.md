@@ -2,7 +2,9 @@
 #### Bash-based build tool
 
 ### Installation
-TODO: Create per-distro installers
+```sh
+wget swisschili.github.io/bakery/install.sh && sh install.sh
+```
 
 ### Why is it useful?
 Bake has some nifty features that make it stand out, here are a few:
