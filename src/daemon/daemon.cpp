@@ -27,6 +27,10 @@ int main ( int argc, char ** argv )
     }
     if ( argc > 1 )
     {
+        // kills the daemon... with the daemon
+        // because reasons
+        //
+        // also a manpage with flags might be useful
         string arg = args[1];
         if ( arg == "-q" || arg == "--quit" )
         {
@@ -67,13 +71,5 @@ int main ( int argc, char ** argv )
     {
         syslog(LOG_ERR, "Could not generate SID");
     }
-
-    bool clone = cloneRepo("https://github.com/swissChili/bakery.git");
-
-    if ( clone )
-        std::cout << "Cloned Successfully";
-    else
-        std::cout << "Failed to clone";
-    std::cout << std::endl;
 
 }

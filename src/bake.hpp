@@ -7,6 +7,9 @@ using std::string;
 using std::cout;
 using std::endl;
 
+#ifndef _BAKE_HPP
+#define _BAKE_HPP
+
 bool endsWith (std::string const &fullString, std::string const &ending) {
     if (fullString.length() >= ending.length()) {
         return (0 == fullString.compare (fullString.length() - ending.length(), ending.length(), ending));
@@ -139,3 +142,4 @@ namespace bake
         return false;
     }
 }
+#endif
