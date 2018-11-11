@@ -24,12 +24,12 @@ int main (int argc, char ** argv)
     {
         if ( bake::kill() )
         {
-            cout << "Killed successfully!"; 
+            cout << "Killed successfully!";
             return 0;
         }
         else
         {
-            cout << "Failed to kill! Is there a container running?"; 
+            cout << "Failed to kill! Is there a container running?";
             return 1;
         }
         cout << endl;
@@ -47,4 +47,11 @@ int main (int argc, char ** argv)
         << "Reading Bakery    bake v"
         << version
         << endl;
+
+    string parsed = bake::parseBakery(argc, argv, test);
+    // modern c++ == c# for not windows peasants
+    if ( parsed == "" )
+        cout << "Failed to parse bakery!";
+    else
+        bake::sourceRecipe(parsed, temp, test);
 }
