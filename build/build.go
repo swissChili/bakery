@@ -51,9 +51,9 @@ func GetBakery(f string) map[string]Command {
 func Do(run string) string {
     out, err := exec.Command("sh", "-c", run).Output()
     if err != nil {
-        fmt.Printf(`%s[ Fail ]%s Build failed:
-%s
-`, Red, Reset, run)
+        fmt.Printf(`%s[ Fail ]%s Build failed at command 
+%s'%s'%s
+`, Red, Reset, Red, run, Reset)
         panic("Failed to build")
     }
 
@@ -67,7 +67,7 @@ func Run(full map[string]Command, do string, done []string) {
 
     for _, from := range bakery.From {
         if !stringInSlice(from, done) {
-            fmt.Printf(`         Building dep %s...
+            fmt.Printf(`         Building dependency '%s'...
 `, from)
             Run(full, from, done)
         }
@@ -75,6 +75,6 @@ func Run(full map[string]Command, do string, done []string) {
 
     fmt.Println(Do(bakery.Do))
 
-    fmt.Printf(`%s[ Done ]%s Built %s successfully
+    fmt.Printf(`%s[ Done ]%s Built '%s' successfully
 `, Green, Reset, do)
 }
