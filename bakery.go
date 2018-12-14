@@ -17,7 +17,7 @@ func main() {
         command = os.Args[1]
     }
 
-    fmt.Printf(`%s[  Go  ]%s Starting to build command %s
+    fmt.Printf(`%s[ Bake ]%s Starting to build command %s
 `, build.Green, build.Reset, command)
 
     build.Run(bakery, command, []string{})

@@ -60,16 +60,17 @@ func Do(run string) string {
     return string(out)
 }
 
-func Run(full map[string]Command, do string, done []string) {
+func Run(full map[string]Command, do string, done []string) []string {
     bakery := full[do]
-    done = append(done, bakery.Do)
+    done = append(done, do)
     
 
     for _, from := range bakery.From {
         if !stringInSlice(from, done) {
             fmt.Printf(`         Building dependency '%s'...
 `, from)
-            Run(full, from, done)
+            done = append(done, from)
+            done = Run(full, from, done)
         }
     }
 
@@ -77,4 +78,5 @@ func Run(full map[string]Command, do string, done []string) {
 
     fmt.Printf(`%s[ Done ]%s Built '%s' successfully
 `, Green, Reset, do)
+    return done
 }

@@ -3,6 +3,7 @@ from = ["get"]
 do = "go build -o target/bake bakery.go"
 
 [get]
+from = ["main"]
 do = "go get github.com/BurntSushi/toml"
 
 [install]
