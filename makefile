@@ -1,6 +1,4 @@
-bake: bakery.go build/build.go bakery
+bake: bakery.go build/build.go
+	mkdir target
 	go build -o target/bake bakery.go
-
-
-bakery: bake
 	target/bake
