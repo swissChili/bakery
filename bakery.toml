@@ -1,0 +1,14 @@
+[main]
+from = ["bakery.go", "deps"]
+do = "go build -o target/bake bakery.go"
+
+[deps]
+do = "go get github.com/BurntSushi/toml"
+
+[install]
+from = ["main"]
+do = "sudo cp target/bake /usr/bin/bake"
+
+[break]
+# will fail
+do = "abcdefgh"

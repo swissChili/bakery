@@ -10,3 +10,7 @@
 **/#*
 **/*.zip
 src/assets
+src/baked
+.vscode
+target
+.vscode
