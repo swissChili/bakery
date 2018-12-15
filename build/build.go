@@ -27,6 +27,7 @@ func stringInSlice(a string, list []string) bool {
 type Command struct {
     From      []string `toml="from"`
     Do          string `toml="do"`
+    Description string `toml="description"`
     // description string `toml="description`
 }
 
@@ -48,12 +49,12 @@ func GetBakery(f string) map[string]Command {
     return bakery
 }
 
-func Do(run string) string {
+func Do(run string, desc string) string {
     out, err := exec.Command("sh", "-c", run).Output()
     if err != nil {
-        fmt.Printf(`%s[ Fail ]%s Build failed at command 
-%s'%s'%s
-`, Red, Reset, Red, run, Reset)
+        fmt.Printf(`%s[ Fail ]%s Build failed: 
+        %s'%s'%s
+`, Red, Reset, Red, desc, Reset)
         panic("Failed to build")
     }
 
@@ -73,8 +74,12 @@ func Run(full map[string]Command, do string, done []string) []string {
             done = Run(full, from, done)
         }
     }
+    blurb := "No description provided"
+    if bakery.Description != "" {
+        blurb = bakery.Description
+    }
 
-    fmt.Println(Do(bakery.Do))
+    fmt.Println(Do(bakery.Do, blurb))
 
     fmt.Printf(`%s[ Done ]%s Built '%s' successfully
 `, Green, Reset, do)

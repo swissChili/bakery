@@ -5,10 +5,12 @@ do = "go build -o target/bake bakery.go"
 [get]
 from = ["main"]
 do = "go get github.com/BurntSushi/toml"
+description = "get dependencies"
 
 [install]
 from = ["main"]
 do = "sudo cp target/bake /usr/bin/bake"
+description = "Install to $PATH"
 
 [break]
 do = "asdfghjkl"
