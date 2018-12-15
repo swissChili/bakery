@@ -6,12 +6,8 @@ import (
     "io/ioutil"
     "fmt"
     "os/exec"
+    "../colors"
 )
-
-
-const Green = "\033[32m"
-const Reset = "\033[0m"
-const Red   = "\033[31m"
 
 
 func stringInSlice(a string, list []string) bool {
@@ -54,7 +50,7 @@ func Do(run string, desc string) string {
     if err != nil {
         fmt.Printf(`%s[ Fail ]%s Build failed: 
         %s'%s'%s
-`, Red, Reset, Red, desc, Reset)
+`, colors.Red, colors.Reset, colors.Red, desc, colors.Reset)
         panic("Failed to build")
     }
 
@@ -82,6 +78,6 @@ func Run(full map[string]Command, do string, done []string) []string {
     fmt.Println(Do(bakery.Do, blurb))
 
     fmt.Printf(`%s[ Done ]%s Built '%s' successfully
-`, Green, Reset, do)
+`, colors.Green, colors.Reset, do)
     return done
 }
