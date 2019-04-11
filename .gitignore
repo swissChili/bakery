@@ -13,4 +13,5 @@ src/assets
 src/baked
 .vscode
 target
-.vscode
+.stack-work
+bakery.cabal

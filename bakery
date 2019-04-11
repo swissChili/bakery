@@ -1,0 +1,6 @@
+library a
+target b
+
+a.sources = main.cpp foo.cpp
+a.headers += foo.h
+b.headers += bar.h
